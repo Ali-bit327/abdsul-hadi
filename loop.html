@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=-, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body id="main">
+    <button id="on"onclick="darkon()">darkon</button>
+    <button id="off"onclick="darkoff()">darkoff</button>
+    <script>
+        function darkon(){
+          document.getElementById("main").style.background ="black";
+          document.getElementById("main").style.color ="white";
+          }
+           function darkoff(){
+          document.getElementById("main").style.background ="";
+          document.getElementById("main").style.color ="";
+          }
+    </script>
+</body>
+
+</html>
