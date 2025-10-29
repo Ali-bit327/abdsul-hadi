@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <button >append</button>
+    <div>
+        <table>
+            <tr>
+                <th>NAME</th>
+                <th>SALARY</th>
+                <th>AGE</th>
+            </tr>
+            <tr>
+                <th>abdul hadi</th>
+                <th>150000</th>
+                <th>24</th>
+
+                </th>
+            </tr>
+        </table>
+    </div>
+    <script>
+        (document).ready(function(){
+            $('btn').click(function(){
+                $('div').append('<table border> <tr> <th> NAME </th> <th> SALARY </th> <th> AGE </th> </tr> <tr> <th>abdul hadi</tr><th> 150000</tr><th>24</tr>')
+            })
+        })
+    </script>
+</body>
+</html>

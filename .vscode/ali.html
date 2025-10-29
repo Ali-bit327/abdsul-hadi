@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Multiple Number Counter Animation</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150vh; /* extra height for scroll */
+    flex-direction: column;
+  }
+
+  .counters {
+    display: flex;
+    gap: 40px;
+    margin-top: 100vh; /* so you need to scroll down to see */
+  }
+
+  .counter {
+    background: #222;
+    color: #fff;
+    padding: 30px 50px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 50px;
+    width: 150px;
+    user-select: none;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  }
+
+  .label {
+    font-size: 18px;
+    margin-top: 10px;
+    color: #ccc;
+  }
+</style>
+</head>
+<body>
+
+<div class="counters">
+  <div>
+    <div class="counter" data-target="1200">0</div>
+    <div class="label">Projects</div>
+  </div>
+  <div>
+    <div class="counter" data-target="3500">0</div>
+    <div class="label">Clients</div>
+  </div>
+  <div>
+    <div class="counter" data-target="280">0</div>
+    <div class="label">Awards</div>
+  </div>
+  <div>
+    <div class="counter" data-target="5000">0</div>
+    <div class="label">Followers</div>
+  </div>
+</div>
+
+<script>
+  const counters = document.querySelectorAll('.counter');
+  let started = false;
+
+  function animateCount(el) {
+    const target = +el.getAttribute('data-target');
+    let count = 0;
+    const duration = 2000; // 2 seconds
+    const stepTime = Math.floor(duration / target);
+
+    function updateCount() {
+      count += 1;
+      el.textContent = count.toLocaleString();
+      if (count < target) {
+        setTimeout(updateCount, stepTime);
+      } else {
+        el.textContent = target.toLocaleString();
+      }
+    }
+
+    updateCount();
+  }
+
+  function checkScroll() {
+    const triggerPoint = window.innerHeight;
+    counters.forEach(counter => {
+      const top = counter.getBoundingClientRect().top;
+      if (top < triggerPoint && !counter.classList.contains('counted')) {
+        animateCount(counter);
+        counter.classList.add('counted');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', checkScroll);
+  // Also check on load in case already in viewport
+  window.addEventListener('load', checkScroll);
+</script>
+
+</body>
+</html>

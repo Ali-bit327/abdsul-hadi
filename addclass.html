@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <style>
+        .abc{
+            background-color: black;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div>
+            <h1 align="center">heading 1</h1>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint blanditiis illum delectus placeat aut doloremque possimus, atque aliquam deleniti sed, tempora ad. Sequi optio laborum et sint ipsam, tempora quia.
+            Mollitia, est sunt dolorem explicabo voluptates error ipsum incidunt praesentium dicta earum iusto in pariatur fugiat nam veniam exercitationem ratione et quaerat, impedit, aspernatur velit officia tempora. Modi, unde deserunt!</p>
+        </div>
+    </div>
+    <button id="btn">CSS</button>
+    <button id="btn1">RemoveCSS</button>
+    <script>
+       $(document).ready(function(){
+        $('#btn').click(function(){
+            $('#container').addClass("abc")
+        })
+
+        $('#btn1').click(function(){
+            $('#container').removeClass("abc")
+        })
+
+
+       })
+    </script>
+</body>
+</html>

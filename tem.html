@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Password Generator</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #222;
+    color: #eee;
+    text-align: center;
+    padding: 50px;
+  }
+  .container {
+    background: #333;
+    padding: 30px;
+    border-radius: 10px;
+    display: inline-block;
+    min-width: 300px;
+  }
+  input[type="number"] {
+    width: 60px;
+    padding: 8px;
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background: #4CAF50;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #45a049;
+  }
+  #password {
+    margin-top: 20px;
+    font-size: 22px;
+    background: #111;
+    padding: 15px;
+    border-radius: 6px;
+    user-select: all;
+  }
+</style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>🔐 Password Generator</h2>
+    <label for="length">Password Length:</label>
+    <input type="number" id="length" min="6" max="50" value="12" />
+    <br />
+    <button onclick="generatePassword()">Generate Password</button>
+
+    <div id="password" title="Click to copy password"></div>
+  </div>
+
+<script>
+  function generatePassword() {
+    const length = parseInt(document.getElementById('length').value);
+    if (isNaN(length) || length < 6) {
+      alert('Please enter a length of at least 6');
+      return;
+    }
+
+    const chars = {
+      lowercase: 'abcdefghijklmnopqrstuvwxyz',
+      uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+      numbers: '0123456789',
+      symbols: '!@#$%^&*()_+-=[]{}|;:,.<>?'
+    };
+
+    let allChars = chars.lowercase + chars.uppercase + chars.numbers + chars.symbols;
+    let password = '';
+
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * allChars.length);
+      password += allChars[randomIndex];
+    }
+
+    document.getElementById('password').textContent = password;
+  }
+
+  // Copy password on click
+  document.getElementById('password').addEventListener('click', function() {
+    if (this.textContent) {
+      navigator.clipboard.writeText(this.textContent).then(() => {
+        alert('Password copied to clipboard!');
+      });
+    }
+  });
+</script>
+
+</body>
+</html>

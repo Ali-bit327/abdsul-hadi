@@ -8,7 +8,10 @@
 </head>
 
 <body>
+    <div id="container">
+     
     <h1 align="center">hello world </h1>
+    <h2>abdul hadi</h2>
     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, magni animi magnam ut tempora est delectus ea
         pariatur excepturi suscipit veritatis hic ipsam nobis deserunt iusto eligendi recusandae quos? Ab.
         Quasi voluptatum fuga nemo itaque quibusdam fugit vel nihil eveniet eius adipisci reiciendis eaque, asperiores
@@ -33,11 +36,23 @@
         accusantium? At magnam deleniti delectus aliquam ipsa enim dicta, fuga optio atque ab quidem corrupti.
         Ab, dicta similique suscipit illum fugiat mollitia aspernatur voluptatem quas temporibus dolor, deserunt dolore
         aut ea enim atque optio autem quam, iste culpa? Autem voluptatibus dicta itaque. Dolorem, sint numquam.</p>
-        <script>
-        alert("hello every one")
-          var a = document.write("")
+
+        </div>
          
+          <button id="class" onclick="light()">light</button>
+          <button id="class" onclick="Dark()">Dark</button>
+           
+        <script>
+       // alert("hello every one")
+          function Dark() {
+               var a = document.getElementById('container').style.display="none";
+                }
+                function light () {
+               var a = document.getElementById('container').style.display="block";
+               var b = document.getElementById('container').style.background="blue";
+                }
         </script>
+        
 </body>
 
 </html>
